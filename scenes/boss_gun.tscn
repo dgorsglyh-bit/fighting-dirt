@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8iyla825bvnm"]
+
+[ext_resource type="Script" uid="uid://betugkq2800u2" path="res://scripts/bosgun.gd" id="1_gtvgp"]
+[ext_resource type="Texture2D" uid="uid://dn0jlllarwncm" path="res://sprites/orig.webp" id="2_lymhl"]
+
+[node name="gun" type="Node2D"]
+script = ExtResource("1_gtvgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.52682084, 0, 0, 1)
+rotation = -1.5707964
+scale = Vector2(0.08555353, 0.3158188)
+texture = ExtResource("2_lymhl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(142, -4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

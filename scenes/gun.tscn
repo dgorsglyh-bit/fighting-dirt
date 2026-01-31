@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctv1hhlackf2n"]
+
+[ext_resource type="Script" uid="uid://yyv76ntlbled" path="res://scripts/gun.gd" id="1_dk5gl"]
+[ext_resource type="Texture2D" uid="uid://fiqeqvmpj5fx" path="res://sprites/bubble_gun_menu.png" id="2_og67c"]
+
+[node name="gun" type="Node2D"]
+script = ExtResource("1_dk5gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(35, 4)
+scale = Vector2(3.551021, 4.341)
+texture = ExtResource("2_og67c")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(83, -1)

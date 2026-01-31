@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://csfrx77mmygvy"]
+
+[ext_resource type="Script" uid="uid://bmwm312bp4lgc" path="res://scripts/gun_1.gd" id="1_irqms"]
+[ext_resource type="Texture2D" uid="uid://dmou5nf4x2cc3" path="res://sprites/mud_gun_menu.png" id="2_irqms"]
+
+[node name="gun1" type="Node2D"]
+position = Vector2(141, 116)
+script = ExtResource("1_irqms")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(80.99999, -0.99999994)
+scale = Vector2(6.098, 5)
+texture = ExtResource("2_irqms")
+
+[node name="Node2D" type="Node2D" parent="CharacterBody2D"]
+position = Vector2(163, -1)

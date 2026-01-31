@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7lnntl1yj1oj"]
+
+[ext_resource type="Script" uid="uid://bvd1n7d4ohc4a" path="res://scripts/enemy.gd" id="1_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://buvpugtq6017i" path="res://sprites/mob_1.png" id="2_c4w8v"]
+[ext_resource type="Texture2D" uid="uid://t2wraj41uthg" path="res://sprites/pixil_frame_3.png" id="3_xwavj"]
+[ext_resource type="Texture2D" uid="uid://ja54ir40enm8" path="res://sprites/pixil_frame_4.png" id="4_nenq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 75.026665
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
+size = Vector2(84, 81)
+
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_5uy6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(44, 34)
+scale = Vector2(2.9085937, 2.9085937)
+texture = ExtResource("2_c4w8v")
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 6
+visibility_layer = 6
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 6
+visibility_layer = 6
+position = Vector2(42, 31)
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="hpbar" type="TextureProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -57.0
+offset_right = 93.0
+offset_bottom = 43.0
+value = 100.0
+texture_over = ExtResource("3_xwavj")
+texture_progress = ExtResource("4_nenq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44, 40.5)
+shape = SubResource("RectangleShape2D_5uy6h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

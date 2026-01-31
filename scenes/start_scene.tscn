@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://rwp47x1r0y1p"]
+
+[ext_resource type="Texture2D" uid="uid://cxsdaos8a1cbp" path="res://sprites/background_1.jpg" id="1_i331m"]
+[ext_resource type="Texture2D" uid="uid://5nkw7np7hwj0" path="res://sprites/img_3.webp" id="2_0kdh5"]
+[ext_resource type="PackedScene" uid="uid://b7lnntl1yj1oj" path="res://scenes/enemy.tscn" id="3_sg87u"]
+[ext_resource type="PackedScene" uid="uid://cwdi732fmbwi2" path="res://scenes/sponge.tscn" id="4_2l3yw"]
+
+[node name="start_scene" type="Node2D"]
+
+[node name="fon" type="Sprite2D" parent="."]
+position = Vector2(586, 369)
+texture = ExtResource("1_i331m")
+
+[node name="I(4)" type="Sprite2D" parent="fon"]
+position = Vector2(-55, -1604)
+texture = ExtResource("2_0kdh5")
+
+[node name="I(4)2" type="Sprite2D" parent="fon"]
+position = Vector2(-1, 1610)
+texture = ExtResource("2_0kdh5")
+
+[node name="I(4)3" type="Sprite2D" parent="fon"]
+position = Vector2(2594, -16)
+scale = Vector2(1, 2.9721565)
+texture = ExtResource("2_0kdh5")
+
+[node name="I(4)4" type="Sprite2D" parent="fon"]
+position = Vector2(-2608, -34)
+scale = Vector2(1, 2.9721565)
+texture = ExtResource("2_0kdh5")
+
+[node name="enemy" parent="." instance=ExtResource("3_sg87u")]
+position = Vector2(-344, -149)
+
+[node name="player" parent="." instance=ExtResource("4_2l3yw")]
+position = Vector2(1034, 782)

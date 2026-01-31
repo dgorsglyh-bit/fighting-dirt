@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://bihdcibq0lx1e"]
+
+[ext_resource type="Texture2D" uid="uid://bkdtgvqoa27s0" path="res://sprites/boss_1.png" id="1_dlmty"]
+[ext_resource type="Script" uid="uid://cylrk8x2xehu8" path="res://scripts/boss.gd" id="1_neq0i"]
+[ext_resource type="Texture2D" uid="uid://t2wraj41uthg" path="res://sprites/pixil_frame_3.png" id="3_qnbj4"]
+[ext_resource type="Texture2D" uid="uid://ja54ir40enm8" path="res://sprites/pixil_frame_4.png" id="4_r3bxh"]
+[ext_resource type="PackedScene" uid="uid://c8iyla825bvnm" path="res://scenes/boss_gun.tscn" id="5_r3bxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbj4"]
+size = Vector2(161, 162)
+
+[sub_resource type="Animation" id="Animation_qnbj4"]
+resource_name = "atack1"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r3bxh"]
+_data = {
+&"atack1": SubResource("Animation_qnbj4")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqpjq"]
+radius = 90.47652
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3bxh"]
+size = Vector2(170, 170)
+
+[node name="boss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_neq0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+scale = Vector2(5, 5)
+texture = ExtResource("1_dlmty")
+
+[node name="rubish_bar" type="TextureProgressBar" parent="."]
+offset_left = -134.0
+offset_top = -248.0
+offset_right = 142.0
+offset_bottom = 28.0
+nine_patch_stretch = true
+texture_over = ExtResource("3_qnbj4")
+texture_progress = ExtResource("4_r3bxh")
+
+[node name="HPBAR" type="TextureProgressBar" parent="."]
+offset_left = -243.0
+offset_top = -1.0
+offset_right = 243.0
+offset_bottom = 274.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_qnbj4")
+texture_over = ExtResource("4_r3bxh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.135
+anchor_top = -0.31
+anchor_right = 0.85
+anchor_bottom = 0.81600004
+offset_left = 186.72002
+offset_top = 163.28
+offset_right = -913.0
+offset_bottom = -523.36804
+text = "1"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_qnbj4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r3bxh")
+}
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_wqpjq")
+debug_color = Color(0.15456629, 0.64527583, 1.92523e-07, 0.41960785)
+
+[node name="gun" parent="." instance=ExtResource("5_r3bxh")]
+position = Vector2(-89, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3bxh")
+
+[node name="gun2" parent="." instance=ExtResource("5_r3bxh")]
+position = Vector2(89, -4)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

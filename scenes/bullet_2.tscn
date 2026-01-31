@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7qj0dg5bjc8f"]
+
+[ext_resource type="Script" uid="uid://xqwafqb8c3hv" path="res://scripts/bullet_2.gd" id="1_xm0l7"]
+[ext_resource type="Texture2D" uid="uid://bd6aafiwvtrm6" path="res://sprites/icon.svg" id="2_xm0l7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6s6y"]
+size = Vector2(28, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm0l7"]
+radius = 16.37834
+
+[node name="bullet1" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_xm0l7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2109375, 0.2265625)
+texture = ExtResource("2_xm0l7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6s6y")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_xm0l7")
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

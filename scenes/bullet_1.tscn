@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3jh470i5wldg"]
+
+[ext_resource type="Texture2D" uid="uid://jivsn6pcjwd7" path="res://sprites/bullet_1.png" id="1_j3m4d"]
+[ext_resource type="Script" uid="uid://dape3vmsh86hf" path="res://scripts/bullet_1.gd" id="1_v6s6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6s6y"]
+size = Vector2(20, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6s6y"]
+radius = 4.973475
+height = 23.962072
+
+[node name="bullet1" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_v6s6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j3m4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_v6s6y")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -2.5)
+rotation = 1.5879883
+shape = SubResource("CapsuleShape2D_v6s6y")
+debug_color = Color(0, 0.63902366, 0.37493968, 0.41960785)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwdi732fmbwi2"]
+
+[ext_resource type="Texture2D" uid="uid://c5bpqvubb8mpo" path="res://sprites/img_4.webp" id="1_o7gw3"]
+[ext_resource type="Script" uid="uid://dbu5nwbqa7dth" path="res://scripts/spunch.gd" id="1_xb51h"]
+[ext_resource type="Texture2D" uid="uid://t2wraj41uthg" path="res://sprites/pixil_frame_3.png" id="3_4l4fw"]
+[ext_resource type="Texture2D" uid="uid://ja54ir40enm8" path="res://sprites/pixil_frame_4.png" id="4_jrpnq"]
+[ext_resource type="PackedScene" uid="uid://ctv1hhlackf2n" path="res://scenes/gun.tscn" id="5_jrpnq"]
+[ext_resource type="PackedScene" uid="uid://csfrx77mmygvy" path="res://scenes/gun_1.tscn" id="6_trle4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrpnq"]
+size = Vector2(123, 124)
+
+[node name="player" type="CharacterBody2D"]
+light_mask = 4
+visibility_layer = 4
+collision_mask = 8
+script = ExtResource("1_xb51h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("1_o7gw3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -3)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 62.899998
+offset_top = -4.0999966
+offset_right = 109.7
+offset_bottom = 26.199999
+text = "1"
+
+[node name="hp_bar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 0.6000004
+offset_top = -12.599999
+offset_right = 50.5
+offset_bottom = 37.3
+nine_patch_stretch = true
+texture_over = ExtResource("3_4l4fw")
+texture_progress = ExtResource("4_jrpnq")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 76.200005
+offset_top = 2.1000001
+offset_right = 84.20001
+offset_bottom = 10.1
+
+[node name="Button1" type="Button" parent="CanvasLayer"]
+offset_left = 87.7
+offset_top = 1.7
+offset_right = 95.700005
+offset_bottom = 9.7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 6
+visibility_layer = 6
+shape = SubResource("RectangleShape2D_jrpnq")
+
+[node name="gun" parent="." instance=ExtResource("5_jrpnq")]
+position = Vector2(69, 25)
+
+[node name="gun1" parent="." instance=ExtResource("6_trle4")]
+visible = false
+position = Vector2(3, 0)
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button1" to="." method="_on_button_1_pressed"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://xm1bq078yt1u"]
+
+[ext_resource type="Script" uid="uid://be5qhua2qusb8" path="res://scripts/rubish.gd" id="1_yf5c3"]
+[ext_resource type="Texture2D" uid="uid://8lukaa80uoev" path="res://sprites/img_1.webp" id="2_yf5c3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5c3"]
+radius = 42.379242
+
+[node name="rubish" type="StaticBody2D"]
+light_mask = 4
+visibility_layer = 4
+script = ExtResource("1_yf5c3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_yf5c3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_yf5c3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
