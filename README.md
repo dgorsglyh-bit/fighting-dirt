@@ -1,38 +1,59 @@
-# Jam Game
+# 🧼 Fighting Dirt ⚔️
 
-A Godot 4.5 action-adventure game developed for a game jam. Navigate through a village, help local residents, and face off against formidable bosses in this top-down adventure.
+[![Godot Engine](https://img.shields.io/badge/Godot-4.5-+blue?logo=godot-engine&logoColor=white)](https://godotengine.org)
+[![Genre](https://img.shields.io/badge/Genre-Action--Adventure-orange)](#)
+[![Status](https://img.shields.io/badge/Status-Jam--Game-green)](#)
 
-## Features
-
-- **Top-Down Combat**: Face various enemies and bosses using a projectile-based combat system.
-- **Narrative Quests**: Help a grandma find her lost cat, Patron, to earn rewards.
-- **Dynamic Spawning**: Encounter endless waves of enemies in the main arena.
-- **Interactive Environment**: Explore the village and collection "rubbish" to progress.
-
-## Project Structure
-
-The project has been normalized to follow clean, consistent naming conventions:
-
-- `scenes/`: Contains all Godot scenes (`.tscn`).
-  - `village.tscn`: The main exploration area.
-  - `boss_fight.tscn`: Dedicated arena for boss encounters.
-  - `boss.tscn`: The main boss character.
-- `scripts/`: All game logic written in GDScript.
-  - `global_vars.gd`: Global state (Player HP, EXP, etc.).
-  - `main.gd`: Game controller and enemy spawning logic.
-- `sprites/`: All visual assets (PNG, JPG, WebP).
-  - Organized with descriptive ASCII names for better compatibility.
-
-## Technical Details
-
-- **Engine**: Godot 4.5
-- **Renderer**: GL Compatibility (Mobile friendly)
-- **Resolution**: Scalable 2D viewport
-
-## Controls
-
-- **Movement**: WASD / Arrow Keys (Depending on implementation)
-- **Attack**: Mouse Click / F Key (See `project.godot` input map)
+> **🧹 Clean the village, save the day!**
+> A fast-paced top-down action-adventure where you battle the forces of filth and help your neighbors. Developed for a Godot 4.5 game jam.
 
 ---
-*Note: This project was normalized from a legacy structure to ensure cross-platform compatibility and maintainability.*
+
+## ✨ Key Features
+
+*   **⚔️ Top-Down Combat**: Master projectile-based combat to sweep away stubborn enemies and massive bosses.
+*   **👵 Heartwarming Quests**: Assist the local grandma in finding her lost cat, **Patron** 🐱.
+*   **🌊 Endless Arena**: Face relentless waves of "unclean" foes in a test of pure skill.
+*   **📦 Interactive World**: Traverse the village, collect "rubbish", and restore order to the environment.
+
+---
+
+## 📂 Project Blueprint
+
+The project is meticulously organized for clarity and performance:
+
+| Directory | Description | Key Files |
+| :--- | :--- | :--- |
+| `scenes/` 🎬 | Godot scenes and UI | `village.tscn`, `boss_fight.tscn` |
+| `scripts/` 📜 | Core game logic (GDScript) | `global_vars.gd`, `main.gd` |
+| `sprites/` 🖼️ | Visual assets and animations | Village environment, Character sprites |
+
+---
+
+## 🛠️ Technical Specs
+
+*   **Engine**: [Godot 4.5](https://godotengine.org) 🤖
+*   **Renderer**: GL Compatibility (Optimized for Mobile & Web) 📱
+*   **Resolution**: Dynamic 2D Scaling 📺
+
+---
+
+## 🎮 How to Play
+
+### Controls
+*   **Movement**: `WASD` or `Arrow Keys` ⌨️
+*   **Attack**: `Left Mouse Click` or `F Key` 🖱️
+
+### Goal
+1. Explore the village and talk to residents.
+2. Collect scattered trash to clear the path.
+3. Don't forget to find Patron! 🐱
+4. Survive the boss fight to achieve ultimate cleanliness! 🏆
+
+---
+
+> [!NOTE]
+> *This project has been refactored from a legacy jam structure to ensure modern standards, cross-platform stability, and code maintainability.*
+
+---
+*Developed with ❤️ and 🧼 during the 2026 Jam.*
